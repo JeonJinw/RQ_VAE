@@ -2,7 +2,7 @@
 ## Autoregressive Image Generation using Residual Quantization (CVPR 2022)
 #### 환경 구축 방법 (Requirements)
 - `Python 3.7.12 / torch==1.9.0+cu111 / torchvision==0.10.0+cu111 / torchaudio==0.9.0`
-`pip install -r requirements.txt`
+- `pip install -r requirements.txt`
 #### 사전 학습 모델 다운로드
 다음 링크를 통해 FFHQ data set을 사용하여 사전 학습 완료된 RQ-VAE, RQ-Transformer 다운로드 (tar.gz).
 
