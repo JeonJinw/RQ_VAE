@@ -10,14 +10,14 @@
 
 다운로드 된 파일 압축 해제 후 다음 디렉토리에 각각 저장
 
-- RQ-VAE 모델 파라미터: config/ffhq/stage1/
-- RQ-Transformer 모델 파라미터: config/ffhq/stage2/
+- RQ-VAE 모델 파라미터: `config/ffhq/stage1/`
+- RQ-Transformer 모델 파라미터: `config/ffhq/stage2/`
 #### 특징 벡터 통계 다운로드
 다음 링크르 통해 데이터 셋의 특징 벡터 통계 다운로드
 
 - [Feature vector statistics](https://twg.kakaocdn.net/brainrepo/etc/RQVAE/8b325b628f49bf60a3094fcf9419398c/fid_stats.tar.gz)
 
-다운로드된 파일 압축 해제 후 다음 디렉토리에 저장 : assets/
+다운로드된 파일 압축 해제 후 다음 디렉토리에 저장 : `assets/`
 
 #### 결과 디렉토리 생성
 추론 결과를 저장할 result 디렉토리 생성
