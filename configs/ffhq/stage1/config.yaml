@@ -1,0 +1,102 @@
+arch:
+  ema: null
+  hparams:
+    loss_type: mse
+    restart_unused_codes: true
+    use_padding_idx: false
+    masked_dropout: 0.0
+    bottleneck_type: rq
+    embed_dim: 256
+    n_embed: 2048
+    latent_shape:
+    - 8
+    - 8
+    - 256
+    code_shape:
+    - 8
+    - 8
+    - 4
+    shared_codebook: true
+    decay: 0.99
+    latent_loss_weight: 0.25
+  checkpointing: true
+  type: rq-vae
+  code_hier: 1
+  ddconfig:
+    double_z: false
+    z_channels: 256
+    resolution: 256
+    in_channels: 3
+    out_ch: 3
+    ch: 128
+    ch_mult:
+    - 1
+    - 1
+    - 2
+    - 2
+    - 4
+    - 4
+    num_res_blocks: 2
+    attn_resolutions:
+    - 16
+    dropout: 0.0
+
+dataset:
+  type: ffhq
+  transforms:
+    type: ffhq256x256
+
+optimizer:
+  type: adam
+  max_gn: null
+  warmup:
+    mode: fix
+    start_from_zero: true
+    epoch: 5
+    multiplier: 1
+    buffer_epoch: 0
+    min_lr: 0.0
+  init_lr: 4.0e-05
+  weight_decay: 0.0
+  betas:
+  - 0.5
+  - 0.9
+  grad_accm_steps: 1
+
+experiment:
+  test_freq: 1
+  amp: false
+  batch_size: 32
+  epochs: 100
+  save_ckpt_freq: 5
+  total_batch_size: 128
+
+gan:
+  disc:
+    optimizer:
+      type: adam
+      max_gn: null
+      warmup:
+        mode: fix
+        start_from_zero: true
+        epoch: 5
+        multiplier: 1
+        buffer_epoch: 0
+        min_lr: 0.0
+      init_lr: 4.0e-05
+      weight_decay: 0.0
+      betas:
+      - 0.5
+      - 0.9
+    arch:
+      in_channels: 3
+      num_layers: 2
+      use_actnorm: false
+      ndf: 64
+      spectral_norm: false
+  loss:
+    disc_loss: hinge
+    gen_loss: vanilla
+    disc_weight: 0.75
+    perceptual_weight: 1.0
+    disc_start: 0
